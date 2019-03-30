@@ -103,18 +103,18 @@ Module.register("Taiwan-Bus", {
 		var wrapper = document.createElement("table");
 		var hr = document.createElement("hr");
 		wrapper.appendChild(hr);
-		var updatetime = 0
+		var u = 0
 		wrapper.className = this.config.tableClass;
 		var now = moment()
-		this.busLists.sort([(a, b) => {
-			if (!a.EstimateTime) {
-				return 1;
-			}
-			if (!b.EstimateTime) {
-				return 0;
-			}
-			return a.EstimateTime < b.EstimateTime
-		}])
+		// this.busLists.sort([(a, b) => {
+		// 	if (!a.EstimateTime) {
+		// 		return 1;
+		// 	}
+		// 	if (!b.EstimateTime) {
+		// 		return 0;
+		// 	}
+		// 	return a.EstimateTime < b.EstimateTime
+		// }])
 		for (var k in this.busLists) {
 			data = this.busLists[k]
 			//console.log("data,", data)
@@ -130,9 +130,10 @@ Module.register("Taiwan-Bus", {
 			var timeDiff = Math.ceil(moment(data.SrcUpdateTime).add(data.EstimateTime, "seconds").diff(now) / 1000);
 			//console.log(routeName, "U", updateTime, "A", arrivedTime, "R", remainTime, "N", now, data.EstimateTime)
 			//console.log(timeDiff)
-			// if (timeDiff < 0) {
-			// 	continue;
-			// }
+			if (timeDiff < 0) {
+				continue;
+			}
+
 			var innerNode = document.createElement("tr")
 			var routeNameTD = document.createElement("td")
 			var timeDiffTD = document.createElement("td")
@@ -143,6 +144,10 @@ Module.register("Taiwan-Bus", {
 			wrapper.appendChild(innerNode);
 			innerNode.appendChild(routeNameTD);
 			innerNode.appendChild(timeDiffTD);
+			u++;
+			if (u >= 5) {
+				break;
+			}
 		}
 
 		var currentFadeStep = 0;
@@ -164,33 +169,33 @@ Module.register("Taiwan-Bus", {
 	 */
 	getLocaleSpecification: function (timeFormat) {
 		switch (timeFormat) {
-		case 12:
-		{
-			return {
-				longDateFormat: {
-					LT: "h:mm A"
+			case 12:
+				{
+					return {
+						longDateFormat: {
+							LT: "h:mm A"
+						}
+					};
+					break;
 				}
-			};
-			break;
-		}
-		case 24:
-		{
-			return {
-				longDateFormat: {
-					LT: "HH:mm"
+			case 24:
+				{
+					return {
+						longDateFormat: {
+							LT: "HH:mm"
+						}
+					};
+					break;
 				}
-			};
-			break;
-		}
-		default:
-		{
-			return {
-				longDateFormat: {
-					LT: moment.localeData().longDateFormat("LT")
+			default:
+				{
+					return {
+						longDateFormat: {
+							LT: moment.localeData().longDateFormat("LT")
+						}
+					};
+					break;
 				}
-			};
-			break;
-		}
 		}
 	},
 	/* broadcastEvents()

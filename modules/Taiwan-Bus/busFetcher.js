@@ -41,16 +41,16 @@ var BusFetcher = function (url, reloadInterval = 10) {
 					cutData.push(jsonData[i])
 				}
 			}
-			cutData.sort([(a, b) => {
-				if (!a.EstimateTime) {
-					return 1;
-				}
-				if (!b.EstimateTime) {
-					return 0;
-				}
-				return a.EstimateTime < b.EstimateTime
-			}])
-			events = cutData.slice(0, 5)
+			// cutData.sort([(a, b) => {
+			// 	if (!a.EstimateTime) {
+			// 		return 1;
+			// 	}
+			// 	if (!b.EstimateTime) {
+			// 		return 0;
+			// 	}
+			// 	return a.EstimateTime < b.EstimateTime
+			// }])
+			events = cutData.slice(0, 15)
 			self.broadcastEvents();
 		})
 		scheduleTimer()
