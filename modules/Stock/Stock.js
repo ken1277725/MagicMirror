@@ -77,15 +77,6 @@ Module.register("Stock", {
 		var u = 0
 		wrapper.className = this.config.tableClass;
 		var now = moment()
-		// this.busLists.sort([(a, b) => {
-		// 	if (!a.EstimateTime) {
-		// 		return 1;
-		// 	}
-		// 	if (!b.EstimateTime) {
-		// 		return 0;
-		// 	}
-		// 	return a.EstimateTime < b.EstimateTime
-		// }])
 		for (var k in this.busLists) {
 			data = this.busLists[k]
 			//console.log("data,", data)
