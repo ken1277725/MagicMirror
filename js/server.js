@@ -4,23 +4,23 @@
  * By Michael Teeuw http://michaelteeuw.nl
  * MIT Licensed.
  */
-
 var express = require("express");
 var app = require("express")();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
+//var pio = require("socket.io")(server);
 var path = require("path");
 var ipfilter = require("express-ipfilter").IpFilter;
 var fs = require("fs");
 var helmet = require("helmet");
 var Utils = require(__dirname + "/utils.js");
-
+var request = require("request")
 var Server = function (config, callback) {
 	var port = config.port;
 	if (process.env.MM_PORT) {
 		port = process.env.MM_PORT;
 	}
-
+	//var msocket = new MMsocket("server");
 	console.log("Starting server on port " + port + " ... ");
 
 	server.listen(port, config.address ? config.address : null);
@@ -92,15 +92,24 @@ var Server = function (config, callback) {
 
 		res.send(html);
 	});
-	app.post("/python", function (req, res) {
-		console.log("req:", req)
-
-		console.log(req.query)
-		res.status(200).send("Sorry, we cannot find that!");
-	});
+	// app.post("/python", function (req, res) {
+	// 	console.log(req.query);
+	// 	namespace = "/Taiwan-Bus";
+	// 	f(namespace);
+	// });
 	if (typeof callback === "function") {
 		callback(app, io);
 	}
 };
 
+function f(namespace) {
+	console.log("?");
+	pio.socket.of(namespace).on("connection", (socket) => {
+		socket.emit("communication", {
+			hello: "world",
+		}, [() => {
+			console.log("!");
+		}]);
+	});
+}
 module.exports = Server;

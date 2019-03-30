@@ -36,11 +36,11 @@ var StockFetcher = function (url, reloadInterval = 10) {
 			//console.log("A")
 			jsonData = JSON.parse(body)
 			var cutData = []
-			for (var i in jsonData) {
-				if (jsonData[i].EstimateTime) {
-					cutData.push(jsonData[i])
-				}
-			}
+			// for (var i in jsonData) {
+			// 	if (jsonData[i].EstimateTime) {
+			// 		cutData.push(jsonData[i])
+			// 	}
+			// }
 			// cutData.sort([(a, b) => {
 			// 	if (!a.EstimateTime) {
 			// 		return 1;
@@ -50,7 +50,7 @@ var StockFetcher = function (url, reloadInterval = 10) {
 			// 	}
 			// 	return a.EstimateTime < b.EstimateTime
 			// }])
-			events = cutData.slice(0, 15)
+			events = jsonData
 			self.broadcastEvents();
 		})
 		scheduleTimer()

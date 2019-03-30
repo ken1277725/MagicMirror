@@ -20,7 +20,8 @@ module.exports = NodeHelper.create({
 	// Override socketNotificationReceived method.
 	socketNotificationReceived: function (notification, payload) {
 		if (notification === "ADD_STOCK") {
-			var seturl = "https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/Taipei?$filter=StopName%2FZh_tw%20eq%20'%E5%85%89%E8%8F%AF%E5%95%86%E5%A0%B4'%20and%20EstimateTime%20ge%200&$orderby=EstimateTime&$top=30&$format=JSON"
+			console.log("get add stock")
+			var seturl = "http://mis.twse.com.tw/stock/api/getStockInfo.jsp?json=1&delay=0&ex_ch=tse_1301.tw|tse_2881.tw|tse_2882.tw"; //|tse_2881.tw|tse_2882.tw
 			this.createFetcher(seturl, payload.fetchInterval);
 		}
 	},
@@ -36,12 +37,12 @@ module.exports = NodeHelper.create({
 	createFetcher: function (url, fetchInterval) {
 		var self = this;
 		console.log("check STOCK_url", url)
-		if (!validUrl.isUri(url)) {
-			self.sendSocketNotification("INCORRECT_URL", {
-				url: url
-			});
-			return;
-		}
+		// if (!validUrl.isUri(url)) {
+		// 	self.sendSocketNotification("INCORRECT_URL", {
+		// 		url: url
+		// 	});
+		// 	return;
+		// }
 
 		var fetcher;
 		if (typeof self.fetchers[url] === "undefined") {

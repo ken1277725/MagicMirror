@@ -125,16 +125,16 @@ var config = {
 					// https://developers.google.com/assistant/sdk/reference/rpc/languages
 				},
 				/* Add your other profiles here, if exists.
-				"other_profile" : {
-				  profileFile: "other.json",
-				  lang: "de-DE"
-				}
-				*/
+									"other_profile" : {
+									  profileFile: "other.json",
+									  lang: "de-DE"
+									}
+									*/
 			},
 
 			record: { // Full values are in `FOR EXPERTS` section.
-				recordProgram: "arecord",  // Defaults to "arecord" - also supports "rec" and "sox"
-				device: null        // recording device (e.g.: "plughw:1")
+				recordProgram: "arecord", // Defaults to "arecord" - also supports "rec" and "sox"
+				device: null // recording device (e.g.: "plughw:1")
 			},
 
 			play: { // Full values are in `FOR EXPERTS` section.
@@ -194,14 +194,14 @@ var config = {
 			},
 
 			record: { // Full version
-				sampleRate: 16000,      // audio sample rate
-				threshold: 0.5,        // silence threshold (rec only)
-				thresholdStart: null,       // silence threshold to start recording, overrides threshold (rec only)
-				thresholdEnd: null,       // silence threshold to end recording, overrides threshold (rec only)
-				silence: 1.0,        // seconds of silence before ending
-				verbose: false,      // log info to the console
-				recordProgram: "arecord",  // Defaults to "arecord" - also supports "rec" and "sox"
-				device: null        // recording device (e.g.: "plughw:1")
+				sampleRate: 16000, // audio sample rate
+				threshold: 0.5, // silence threshold (rec only)
+				thresholdStart: null, // silence threshold to start recording, overrides threshold (rec only)
+				thresholdEnd: null, // silence threshold to end recording, overrides threshold (rec only)
+				silence: 1.0, // seconds of silence before ending
+				verbose: false, // log info to the console
+				recordProgram: "arecord", // Defaults to "arecord" - also supports "rec" and "sox"
+				device: null // recording device (e.g.: "plughw:1")
 			},
 
 			play: { // Full version
@@ -241,38 +241,37 @@ var config = {
 		}
 	},
 	{
-		module: 'MMM-Hotword',
+		module: "MMM-Hotword",
 		config: {
-			snowboy: [
-				{
-					hotwords: "smartmirror", //this will be sent to other module for distinguishing which hotword is detected.
-					file: "resources/models/smart_mirror.umdl",
-					sensitivity: '0.5',
-				},
-				{
-					hotwords: "snowboy",
-					file: "resources/models/snowboy.umdl",
-					sensitivity: '0.5',
-				},
-				{
-					file: 'resources/models/jarvis.umdl',
-					sensitivity: '0.8,0.80',
-					hotwords: ['jarvis', 'jarvis'] //Kitt.ai changed their Jarvis UMDL, it has 2 models in one file. So weird.
-					//anyway, you can give different name for each. ['jarvis_1', 'jarvis_2']. Even though I think this is useless.
-				}
+			snowboy: [{
+				hotwords: "smartmirror", //this will be sent to other module for distinguishing which hotword is detected.
+				file: "resources/models/smart_mirror.umdl",
+				sensitivity: "0.5",
+			},
+			{
+				hotwords: "snowboy",
+				file: "resources/models/snowboy.umdl",
+				sensitivity: "0.5",
+			},
+			{
+				file: "resources/models/jarvis.umdl",
+				sensitivity: "0.8,0.80",
+				hotwords: ["jarvis", "jarvis"] //Kitt.ai changed their Jarvis UMDL, it has 2 models in one file. So weird.
+				//anyway, you can give different name for each. ['jarvis_1', 'jarvis_2']. Even though I think this is useless.
+			}
 			],
 			record: {
-				sampleRate: 16000,      // audio sample rate
-				threshold: 0.5,        // silence threshold (rec only)
-				thresholdStart: null,       // silence threshold to start recording, overrides threshold (rec only)
-				thresholdEnd: null,       // silence threshold to end recording, overrides threshold (rec only)
-				silence: 1.0,        // seconds of silence before ending
-				verbose: false,      // log info to the console. Use this when you want to check mic working or not.
-				recordProgram: 'arecord',  // Defaults to 'arecord' - also supports 'rec' and 'sox'
-				device: null        // recording device (e.g.: 'plughw:1')
+				sampleRate: 16000, // audio sample rate
+				threshold: 0.5, // silence threshold (rec only)
+				thresholdStart: null, // silence threshold to start recording, overrides threshold (rec only)
+				thresholdEnd: null, // silence threshold to end recording, overrides threshold (rec only)
+				silence: 1.0, // seconds of silence before ending
+				verbose: false, // log info to the console. Use this when you want to check mic working or not.
+				recordProgram: "arecord", // Defaults to 'arecord' - also supports 'rec' and 'sox'
+				device: null // recording device (e.g.: 'plughw:1')
 			},
-			autostart: true,              // if 'false', this module will wait for 'HOTWORD_RESUME' notification to start hotwords detection at the beginning.
-			autorestart: false,          // You can set this 'true' when you want this module to go back to listening mode automatically again after hotword is detected. But use this carefully when your other modules are using microphone or speaker.
+			autostart: true, // if 'false', this module will wait for 'HOTWORD_RESUME' notification to start hotwords detection at the beginning.
+			autorestart: false, // You can set this 'true' when you want this module to go back to listening mode automatically again after hotword is detected. But use this carefully when your other modules are using microphone or speaker.
 
 			// customizable notification trigger
 			notifications: {

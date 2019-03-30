@@ -72,53 +72,42 @@ Module.register("Stock", {
 	// Override dom generator.
 	getDom: function () {
 		var complimentText = "Hello World";
-		console.log("stock.getdom" + this.stockLists);
+		//console.log("stock.getdom" + this.stockLists);
 		var wrapper = document.createElement("table");
+		console.log(this.stockLists);
+		if (!this.stockLists) {
+			return wrapper;
+		}
 		var u = 0
 		wrapper.className = this.config.tableClass;
 		var now = moment()
-		for (var k in this.busLists) {
-			data = this.busLists[k]
-			//console.log("data,", data)
-			//data.EstimateTime
-			if (!data.EstimateTime) {
-				continue
+		for (var k in this.stockLists.msgArray) {
+			msg = this.stockLists.msgArray[k]
+			var diff = (parseFloat(msg.z) - parseFloat(msg.y)).toFixed(2);
+			var out = {
+				"名稱": msg.n,
+				"最近成交價": msg.z,
+				"漲跌價差": diff + "(" + (diff / parseFloat(msg.y) * 100).toFixed(2) + "%)",
+				"累積成交量": msg.v,
+				"最高": msg.h,
+				"最低": msg.l
 			}
-
-			var routeName = data.RouteName.Zh_tw
-			var updateTime = moment(data.SrcUpdateTime);
-			var arrivedTime = moment(data.SrcUpdateTime).add(data.EstimateTime, "seconds");
-			var remainTime = arrivedTime.subtract(now)
-			var timeDiff = Math.ceil(moment(data.SrcUpdateTime).add(data.EstimateTime, "seconds").diff(now) / 1000);
-			//console.log(routeName, "U", updateTime, "A", arrivedTime, "R", remainTime, "N", now, data.EstimateTime)
-			//console.log(timeDiff)
-			if (timeDiff < 0) {
-				continue;
-			}
-
-			var innerNode = document.createElement("tr")
-			var routeNameTD = document.createElement("td")
-			var timeDiffTD = document.createElement("td")
-			timeDiffTD.className += " timeDiff";
-			routeNameTD.innerText = routeName
-			var minutes = Math.floor(timeDiff / 60);
-			var seconds = timeDiff - minutes * 60;
-			timeDiffTD.innerText = minutes.toString() + "min";
+			var innerNode = document.createElement("tr");
+			var NameTD = document.createElement("td");
+			var priceTD = document.createElement("td");
+			var percentTD = document.createElement("td");
+			NameTD.innerText = out["名稱"];
+			priceTD.innerText = out["最近成交價"];
+			percentTD.innerText = out["漲跌價差"];
 			wrapper.appendChild(innerNode);
-			innerNode.appendChild(routeNameTD);
-			innerNode.appendChild(timeDiffTD);
+			innerNode.appendChild(NameTD);
+			innerNode.appendChild(priceTD);
+			innerNode.appendChild(percentTD);
 			u++;
-			if (u >= 5) {
+			if (u >= 4) {
 				break;
 			}
 		}
-
-		var currentFadeStep = 0;
-		var lastSeenDate = "";
-
-
-		//wrapper.innerText = ""
-		console.log()
 		return wrapper;
 	},
 
