@@ -65,11 +65,7 @@ var config = {
 	// 		// See 'Configuration options' for more information.
 	// 	}
 	// },
-	{
-		module: "Taiwan-Bus",
-		position: "top_right",
-		config: {}
-	},
+	
 	// {
 	// 	module: "calendar",
 	// 	header: "US Holidays",
@@ -98,12 +94,22 @@ var config = {
 		}
 	},
 	{
-		module: "MMM-AssistantMk2",
+		module: "Taiwan-Bus",
 		position: "top_right",
+		config: {}
+	},
+	{
+		module: "MMM-AssistantMk2",
+		position: "top_left",
 		config: {
 			useWelcomeMessage: "brief today"
 		}
 	},
+	// {
+	// 	module: "Stock",
+	// 	position: "top_left",
+	// 	config: {}
+	// },
 		// {
 		// 	module: "weatherforecast",
 		// 	position: "top_right",
