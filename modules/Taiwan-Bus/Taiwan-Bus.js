@@ -101,8 +101,8 @@ Module.register("Taiwan-Bus", {
 		console.log("BUS try to get Dom")
 		//var events = this.createEventList();
 		var wrapper = document.createElement("table");
-		var hr = document.createElement("hr");
-		wrapper.appendChild(hr);
+		// var hr = document.createElement("hr");
+		// wrapper.appendChild(hr);
 		var u = 0
 		wrapper.className = this.config.tableClass;
 		var now = moment()
@@ -137,10 +137,11 @@ Module.register("Taiwan-Bus", {
 			var innerNode = document.createElement("tr")
 			var routeNameTD = document.createElement("td")
 			var timeDiffTD = document.createElement("td")
+			timeDiffTD.className += " timeDiff";
 			routeNameTD.innerText = routeName
 			var minutes = Math.floor(timeDiff / 60);
 			var seconds = timeDiff - minutes * 60;
-			timeDiffTD.innerText = minutes.toString() + "minute(s)";
+			timeDiffTD.innerText = minutes.toString() + "min";
 			wrapper.appendChild(innerNode);
 			innerNode.appendChild(routeNameTD);
 			innerNode.appendChild(timeDiffTD);

@@ -1,7 +1,10 @@
-body{
-    color: pink;
-}
 
-td{
-    color: pink;
+table{
+    border-top: 1px solid white;
+
+    width: auto !important;
+    float: right;
+}
+.timeDiff{
+    padding: 0 0 0 30px;
 }
