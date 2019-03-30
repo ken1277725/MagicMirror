@@ -1,3 +1,6 @@
 [submodule "modules/MMM-EmbedYoutube"]
 	path = modules/MMM-EmbedYoutube
 	url = https://github.com/nitpum/MMM-EmbedYoutube.git
+[submodule "modules/MMM-AssistantMk2"]
+	path = modules/MMM-AssistantMk2
+	url = https://github.com/eouia/MMM-AssistantMk2.git
