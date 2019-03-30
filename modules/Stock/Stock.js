@@ -73,11 +73,7 @@ Module.register("Stock", {
 	getDom: function () {
 		var complimentText = "Hello World";
 		console.log("stock.getdom" + this.stockLists);
-		console.log("BUS try to get Dom")
-		//var events = this.createEventList();
 		var wrapper = document.createElement("table");
-		// var hr = document.createElement("hr");
-		// wrapper.appendChild(hr);
 		var u = 0
 		wrapper.className = this.config.tableClass;
 		var now = moment()
