@@ -28,15 +28,15 @@ var config = {
 	modules: [{
 		module: "alert"
 	},
-	{
-		module: "MMM-GoogleTasks",
-		header: "Google Tasks",
-		position: "top_left",
-		config: {
-			listID: "MTU3NDQ4MDA4MjAxNzAzMzI1NzQ6MDow"
-			// See below for Configuration Options
-		}
-	},
+	// {
+	// 	module: "MMM-GoogleTasks",
+	// 	header: "Google Tasks",
+	// 	position: "top_left",
+	// 	config: {
+	// 		listID: "MTU3NDQ4MDA4MjAxNzAzMzI1NzQ6MDow"
+	// 		// See below for Configuration Options
+	// 	}
+	// },
 	{
 		module: "MMM-EmbedYoutube", // Path to youtube module from modules folder Exmaple: MagicMirror/modules/custom/MMM-EmbedYoutube/ so it's custom/MMM-EmbedYoutube
 		position: "bottom_bar", // This can be any of the regions.
@@ -65,7 +65,7 @@ var config = {
 	// 		// See 'Configuration options' for more information.
 	// 	}
 	// },
-	
+
 	// {
 	// 	module: "calendar",
 	// 	header: "US Holidays",

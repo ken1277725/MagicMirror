@@ -19,6 +19,7 @@ module.exports = NodeHelper.create({
 	},
 	// Override socketNotificationReceived method.
 	socketNotificationReceived: function (notification, payload) {
+		//console.log(notification, "notif@ication")
 		if (notification === "ADD_BUS") {
 			var seturl = "https://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/Taipei?$filter=StopName%2FZh_tw%20eq%20'%E5%85%89%E8%8F%AF%E5%95%86%E5%A0%B4'%20and%20EstimateTime%20ge%200&$orderby=EstimateTime&$top=30&$format=JSON"
 

@@ -38,12 +38,12 @@ Module.register("Stock", {
 
 
 	// Define required scripts.
-	getScripts: function() {
+	getScripts: function () {
 		return ["moment.js"];
 	},
 
 	// Define start sequence.
-	start: function() {
+	start: function () {
 		Log.log("Starting module: " + this.name);
 
 		// Set locale.
@@ -52,10 +52,12 @@ Module.register("Stock", {
 		this.addStockFetcher()
 	},
 	addStockFetcher: function () {
+		console.log("send add_stock");
 		this.sendSocketNotification("ADD_STOCK", {
 			url: this.config.url,
 			fetchInterval: this.config.fetchInterval
 		})
+		console.log("end add_stock");
 	},
 	// Override socket notification handler.
 	socketNotificationReceived: function (notification, payload) {
@@ -63,29 +65,14 @@ Module.register("Stock", {
 			console.log("STOCK_EVENTS", payload)
 			this.stockLists = payload.events;
 		}
-		// 	if (this.hasCalendarURL(payload.url)) {
-		// 		this.calendarData[payload.url] = payload.events;
-		// 		this.loaded = true;
-
-		// 		if (this.config.broadcastEvents) {
-		// 			this.broadcastEvents();
-		// 		}
-		// 	}
-		// } else if (notification === "FETCH_ERROR") {
-		// 	Log.error("Calendar Error. Could not fetch calendar: " + payload.url);
-		// } else if (notification === "INCORRECT_URL") {
-		// 	Log.error("Calendar Error. Incorrect url: " + payload.url);
-		// } else {
-		// 	Log.log("Calendar received an unknown socket notification: " + notification);
-		// }
 
 		this.updateDom(this.config.animationSpeed);
 	},
 
 	// Override dom generator.
-	getDom: function() {
+	getDom: function () {
 		var complimentText = "Hello World";
-		console.log("stock.getdom"+ this.stockLists);
+		console.log("stock.getdom" + this.stockLists);
 		console.log("BUS try to get Dom")
 		//var events = this.createEventList();
 		var wrapper = document.createElement("table");
@@ -151,8 +138,9 @@ Module.register("Stock", {
 
 
 	// Override notification handler.
-	notificationReceived: function(notification, payload, sender) {
-		if (notification == "CURRENTWEATHER_DATA") {
+	notificationReceived: function (notification, payload, sender) {
+		if (notification == "STOCK_DATA") {
+			console.log(typeof setCurrentWeatherType, this)
 			this.setCurrentWeatherType(payload.data);
 		}
 	},
