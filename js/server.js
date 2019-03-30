@@ -92,11 +92,11 @@ var Server = function (config, callback) {
 
 		res.send(html);
 	});
-	// app.post("/python", function (req, res) {
-	// 	console.log(req.query);
-	// 	namespace = "/Taiwan-Bus";
-	// 	f(namespace);
-	// });
+	app.post("/python", function (req, res) {
+		console.log(req.query);
+		// namespace = "/Taiwan-Bus";
+		// f(namespace);
+	});
 	if (typeof callback === "function") {
 		callback(app, io);
 	}
