@@ -94,6 +94,8 @@ var Server = function (config, callback) {
 	});
 	app.post("/python", function (req, res) {
 		console.log("req:", req)
+
+		console.log(req.query)
 		res.status(200).send("Sorry, we cannot find that!");
 	});
 	if (typeof callback === "function") {
