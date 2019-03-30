@@ -3,7 +3,7 @@ import json
 
 
 class sender():
-    def __init__(self, port):
+    def __init__(self, port=8080):
         self.url = "http://localhost:{0}/python".format(port)
         self.headers = {
             'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -19,6 +19,6 @@ class sender():
         return r
 
 
-a = sender(8080)
+a = sender()
 res = a.send({'msg': 'a', 'r': 'b'})
 print(res.text, res, res.url)
