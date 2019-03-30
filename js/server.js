@@ -96,6 +96,7 @@ var Server = function (config, callback) {
 		console.log(req.query);
 		// namespace = "/Taiwan-Bus";
 		// f(namespace);
+		res.status(200).send("get your data");
 	});
 	if (typeof callback === "function") {
 		callback(app, io);
