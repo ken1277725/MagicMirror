@@ -105,11 +105,11 @@ var config = {
 			useWelcomeMessage: "brief today"
 		}
 	},
-	// {
-	// 	module: "Stock",
-	// 	position: "top_left",
-	// 	config: {}
-	// },
+	{
+		module: "Stock",
+		position: "top_left",
+		config: {}
+	},
 		// {
 		// 	module: "weatherforecast",
 		// 	position: "top_right",
