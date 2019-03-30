@@ -1,0 +1,6 @@
+[submodule "modules/MMM-EmbedYoutube"]
+	path = modules/MMM-EmbedYoutube
+	url = https://github.com/nitpum/MMM-EmbedYoutube.git
+[submodule "modules/MMM-MyCalendar"]
+	path = modules/MMM-MyCalendar
+	url = https://github.com/jclarke0000/MMM-MyCalendar.git
