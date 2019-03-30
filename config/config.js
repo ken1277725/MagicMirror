@@ -97,6 +97,13 @@ var config = {
 			appid: "4d7cc19eb1a010cef5e969401e23e1ce"
 		}
 	},
+	{
+		module: "MMM-AssistantMk2",
+		position: "top_right",
+		config: {
+			useWelcomeMessage: "brief today"
+		}
+	},
 		// {
 		// 	module: "weatherforecast",
 		// 	position: "top_right",

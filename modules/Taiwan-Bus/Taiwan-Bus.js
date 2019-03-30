@@ -38,9 +38,9 @@ Module.register("Taiwan-Bus", {
 	},
 
 	// Define required scripts.
-	getStyles: function () {
-		return ["font-awesome5.css", "font-awesome5.v4shims.css"];
-	},
+	// getStyles: function () {
+	// 	return ["font-awesome5.css", "font-awesome5.v4shims.css"];
+	// },
 
 	// Define required scripts.
 	getScripts: function () {
@@ -101,8 +101,8 @@ Module.register("Taiwan-Bus", {
 		console.log("BUS try to get Dom")
 		//var events = this.createEventList();
 		var wrapper = document.createElement("table");
-		var hr = document.createElement("hr");
-		wrapper.appendChild(hr);
+		// var hr = document.createElement("hr");
+		// wrapper.appendChild(hr);
 		var u = 0
 		wrapper.className = this.config.tableClass;
 		var now = moment()
@@ -137,10 +137,11 @@ Module.register("Taiwan-Bus", {
 			var innerNode = document.createElement("tr")
 			var routeNameTD = document.createElement("td")
 			var timeDiffTD = document.createElement("td")
+			timeDiffTD.className += " timeDiff";
 			routeNameTD.innerText = routeName
 			var minutes = Math.floor(timeDiff / 60);
 			var seconds = timeDiff - minutes * 60;
-			timeDiffTD.innerText = minutes.toString() + "minute(s)";
+			timeDiffTD.innerText = minutes.toString() + "min";
 			wrapper.appendChild(innerNode);
 			innerNode.appendChild(routeNameTD);
 			innerNode.appendChild(timeDiffTD);
@@ -206,5 +207,8 @@ Module.register("Taiwan-Bus", {
 
 		//this.sendNotification("BUS_EVENTS", eventList);
 
+	},
+	getStyles: function () {
+		return ["bus.css", "font-awesome5.css", "font-awesome5.v4shims.css"];
 	}
 });
