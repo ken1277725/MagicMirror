@@ -42,7 +42,7 @@ var config = {
 		position: "bottom_right", // This can be any of the regions.
 		config: {
 			// See 'Configuration options' in README.md for more information.
-			video_id: "w3jLJU7DT5E",
+			video_id: "R5RfSQ3Nxzg",
 			loop: true,
 			autoplay: true,
 			color: "red"
@@ -137,11 +137,11 @@ var config = {
 					// https://developers.google.com/assistant/sdk/reference/rpc/languages
 				},
 				/* Add your other profiles here, if exists.
-																						"other_profile" : {
-																						  profileFile: "other.json",
-																						  lang: "de-DE"
-																						}
-																						*/
+																							"other_profile" : {
+																							  profileFile: "other.json",
+																							  lang: "de-DE"
+																							}
+																							*/
 			},
 
 			record: { // Full values are in `FOR EXPERTS` section.

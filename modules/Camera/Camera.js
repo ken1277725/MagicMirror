@@ -87,13 +87,13 @@ Module.register("Camera", {
 			}
 			//leave
 
-			wrapper.innerText = "Goodbye " + lastName;
+			wrapper.innerText = "Goodbye " + lastName + "!";
 			lastName = "";
 		} else {
 			if (bd.style.visibility === "hidden") {
 				bd.style.visibility = "visible";
 			}
-			wrapper.innerText = "Welcome!" + this.stockLists.name;
+			wrapper.innerText = "Welcome " + this.stockLists.name + "!";
 
 			lastName = this.stockLists.name
 		}
