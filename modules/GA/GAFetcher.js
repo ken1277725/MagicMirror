@@ -12,15 +12,15 @@ var app = require("express")();
 //var io = require("socket.io").listen(server);
 //var express = require( "express" );
 //var app = express();
-var http = require( "http" ).Server(app);
-var bodyParser = require('body-parser');
+var http = require("http").Server(app);
+var bodyParser = require("body-parser");
 app.use(bodyParser.json())
 
 //var http_server = http.createServer( app ).listen( 3000 );
 //var http_io = require( "socket.io" )( http_server );
 
-http.listen(3000, function(){
-	console.log('listening...');
+http.listen(3000, function () {
+	console.log("listening...");
 });
 
 
@@ -42,51 +42,9 @@ var GAFetcher = function (url, reloadInterval = 10) {
 		clearTimeout(reloadTimer);
 		reloadTimer = null;
 		nodeVersion = Number(process.version.match(/^v(\d+\.\d+)/)[1]);
-		// request.get({
-		// 	url: url,
-		// 	headers: {
-		// 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36",
-		// 		"Content-Type": "application/x-www-form-urlencoded",
-		// 		"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-		// 		"X-Compress": "null",
-		// 	}
-		// }, (err, res, body) => {
-		// 	//console.log("A")
-		// 	jsonData = JSON.parse(body)
-		// 	var cutData = []
-		// 	// for (var i in jsonData) {
-		// 	// 	if (jsonData[i].EstimateTime) {
-		// 	// 		cutData.push(jsonData[i])
-		// 	// 	}
-		// 	// }
-		// 	// cutData.sort([(a, b) => {
-		// 	// 	if (!a.EstimateTime) {
-		// 	// 		return 1;
-		// 	// 	}
-		// 	// 	if (!b.EstimateTime) {
-		// 	// 		return 0;
-		// 	// 	}
-		// 	// 	return a.EstimateTime < b.EstimateTime
-		// 	// }])
-		// 	events = jsonData
-		// 	self.broadcastEvents();
-		// })
 		console.log("check")
-		//http_io.on("connection", function (httpsocket) {
-		//	//io.emit("this", { will: "be received by everyone" });
-		//	httpsocket.on("python-message", function (fromPython) {
-		//		//console.log("I received a private message by ", from, " saying ", msg);
-		//		//events = msg;
-		//		console.log(fromPython);
-		//		httpsocket.broadcast.emit( 'message', fromPython );
-		//		events = fromPython;
-		//	});
-		//	socket.on("disconnect", function () {
-		//		io.emit("user disconnected");
-		//	});
-		//});
-		app.post('/',function(req,res){
-			var msg=req.body;
+		app.post("/", function (req, res) {
+			var msg = req.body;
 			console.log("python: " + msg.user_text + "," + msg.google_text);
 			events = msg;
 			res.sendStatus(200);

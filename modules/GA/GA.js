@@ -61,9 +61,10 @@ Module.register("GA", {
 	},
 	// Override socket notification handler.
 	socketNotificationReceived: function (notification, payload) {
-		if (notification === "STOCK_EVENTS") {
-			console.log("STOCK_EVENTS", payload)
+		if (notification === "GA_EVENTS") {
+			console.log("GA_EVENTS", payload)
 			this.stockLists = payload.events;
+			console.log(this.stockLists);
 		}
 
 		this.updateDom(this.config.animationSpeed);
@@ -78,36 +79,13 @@ Module.register("GA", {
 		if (!this.stockLists) {
 			return wrapper;
 		}
-		var u = 0
-		wrapper.className = this.config.tableClass;
-		var now = moment()
-		for (var k in this.stockLists.msgArray) {
-			msg = this.stockLists.msgArray[k]
-			var diff = (parseFloat(msg.z) - parseFloat(msg.y)).toFixed(2);
-			var out = {
-				"名稱": msg.n,
-				"最近成交價": msg.z,
-				"漲跌價差": diff + "(" + (diff / parseFloat(msg.y) * 100).toFixed(2) + "%)",
-				"累積成交量": msg.v,
-				"最高": msg.h,
-				"最低": msg.l
-			}
-			var innerNode = document.createElement("tr");
-			var NameTD = document.createElement("td");
-			var priceTD = document.createElement("td");
-			var percentTD = document.createElement("td");
-			NameTD.innerText = out["名稱"];
-			priceTD.innerText = out["最近成交價"];
-			percentTD.innerText = out["漲跌價差"];
-			wrapper.appendChild(innerNode);
-			innerNode.appendChild(NameTD);
-			innerNode.appendChild(priceTD);
-			innerNode.appendChild(percentTD);
-			u++;
-			if (u >= 4) {
-				break;
-			}
-		}
+		wrapper.innerHTML = this.stockLists.user_text //google_text
+		innerNode = document.createElement("tr");
+		innerNode = this.stockLists.user_text;
+		wrapper.appendChild(innerNode)
+		innerNode = document.createElement("tr");
+		innerNode = this.stockLists.google_text;
+		wrapper.appendChild(innerNode)
 		return wrapper;
 	},
 
