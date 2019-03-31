@@ -41,7 +41,7 @@ while True:
     # arr[1] = 1
     # arr = [0]*10
     ret, img = cam.read()
-    # img = cv2.flip(img, -1)  # Flip vertically
+    img = cv2.flip(img, -1)  # Flip vertically
 
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -74,14 +74,14 @@ while True:
                     font, 1, (255, 255, 0), 1)
     for i in range(len(b)):
         b[i] = (1-alpha) * b[i] + alpha*arr[i]
-    print(b)
+    print(b[3])
     sendman = sender()
     time.sleep(0.3)
     A = 0
     for i in range(len(b)):
         if(b[i] > 1e-5):
             A = 1
-        if(b[i] > 0.97):
+        if(b[i] > 0.7):
             print("send", names[i])
             sendman.send({"id": i, "name": names[i]})
             time.sleep(5)
@@ -89,6 +89,7 @@ while True:
     if(A == 0):
         sendman.send({"id": -1, "name": "leave"})
         time.sleep(5)
+        b = [0.2]*10
 print("\n [INFO] Exiting Program and cleanup stuff")
 cam.release()
 cv2.destroyAllWindows()
