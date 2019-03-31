@@ -49,6 +49,13 @@ var config = {
 		}
 	},
 	{
+		module: "Camera", // Path to youtube module from modules folder Exmaple: MagicMirror/modules/custom/MMM-EmbedYoutube/ so it's custom/MMM-EmbedYoutube
+		position: "top_center", // This can be any of the regions.
+		config: {
+
+		}
+	},
+	{
 		module: "updatenotification",
 		position: "top_bar"
 	},
@@ -130,11 +137,11 @@ var config = {
 					// https://developers.google.com/assistant/sdk/reference/rpc/languages
 				},
 				/* Add your other profiles here, if exists.
-															"other_profile" : {
-															  profileFile: "other.json",
-															  lang: "de-DE"
-															}
-															*/
+																						"other_profile" : {
+																						  profileFile: "other.json",
+																						  lang: "de-DE"
+																						}
+																						*/
 			},
 
 			record: { // Full values are in `FOR EXPERTS` section.
