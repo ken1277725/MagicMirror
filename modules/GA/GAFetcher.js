@@ -46,7 +46,7 @@ var GAFetcher = function (url, reloadInterval = 10) {
 		app.post("/", function (req, res) {
 			var msg = req.body;
 			console.log("python: " + msg.user_text + "," + msg.google_text);
-			events.append(msg);
+			events.push(msg);
 			res.sendStatus(200);
 		});
 
