@@ -79,12 +79,11 @@ Module.register("GA", {
 		if (!this.stockLists) {
 			return wrapper;
 		}
-		wrapper.innerHTML = this.stockLists.user_text //google_text
 		innerNode = document.createElement("tr");
-		innerNode = this.stockLists.user_text;
+		innerNode = this.stockLists[0].user_text;
 		wrapper.appendChild(innerNode)
 		innerNode = document.createElement("tr");
-		innerNode = this.stockLists.google_text;
+		innerNode = this.stockLists[0].google_text;
 		wrapper.appendChild(innerNode)
 		return wrapper;
 	},
