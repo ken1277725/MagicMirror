@@ -99,6 +99,11 @@ var config = {
 		config: {}
 	},
 	{
+		module: "GA",
+		position: "top_left",
+		config: {}
+	},
+	{
 		module: "MMM-AssistantMk2",
 		position: "top_left",
 		config: {
