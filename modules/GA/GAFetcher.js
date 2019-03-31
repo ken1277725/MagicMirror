@@ -38,7 +38,7 @@ var GAFetcher = function (url, reloadInterval = 10) {
 	 * Initiates calendar fetch.
 	 */
 	var fetchBusInfo = function () {
-		var events = [];
+		this.events = [];
 		clearTimeout(reloadTimer);
 		reloadTimer = null;
 		nodeVersion = Number(process.version.match(/^v(\d+\.\d+)/)[1]);
@@ -46,11 +46,11 @@ var GAFetcher = function (url, reloadInterval = 10) {
 		app.post("/", function (req, res) {
 			var msg = req.body;
 			console.log("python: " + msg.user_text + "," + msg.google_text);
-			events.push(msg);
+			this.events.push(msg);
 			res.sendStatus(200);
 		});
 
-		console.log(events);
+		console.log(this.events);
 
 		self.broadcastEvents();
 		scheduleTimer()
