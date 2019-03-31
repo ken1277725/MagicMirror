@@ -71,7 +71,6 @@ Module.register("Stock", {
 
 	// Override dom generator.
 	getDom: function () {
-		var complimentText = "Hello World";
 		//console.log("stock.getdom" + this.stockLists);
 		var wrapper = document.createElement("table");
 		console.log(this.stockLists);
@@ -80,6 +79,7 @@ Module.register("Stock", {
 		}
 		var u = 0
 		wrapper.className = this.config.tableClass;
+		wrapper.className += " stockTable";
 		var now = moment()
 		for (var k in this.stockLists.msgArray) {
 			msg = this.stockLists.msgArray[k]
@@ -97,6 +97,8 @@ Module.register("Stock", {
 			var priceTD = document.createElement("td");
 			var percentTD = document.createElement("td");
 			NameTD.innerText = out["名稱"];
+			priceTD.className += " spaceLeft";
+			percentTD.className += " spaceLeft";
 			priceTD.innerText = out["最近成交價"];
 			percentTD.innerText = out["漲跌價差"];
 			wrapper.appendChild(innerNode);
