@@ -80,10 +80,10 @@ Module.register("GA", {
 			return wrapper;
 		}
 		innerNode = document.createElement("tr");
-		innerNode = this.stockLists[0].user_text;
+		innerNode.innerTextt = this.stockLists[0].user_text;
 		wrapper.appendChild(innerNode)
 		innerNode = document.createElement("tr");
-		innerNode = this.stockLists[0].google_text;
+		innerNode.innerTextt = this.stockLists[0].google_text;
 		wrapper.appendChild(innerNode)
 		return wrapper;
 	},
