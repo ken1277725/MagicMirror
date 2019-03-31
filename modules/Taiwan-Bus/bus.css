@@ -8,3 +8,10 @@ table{
 .timeDiff{
     padding: 0 0 0 20px;
 }
+
+.stockTable{
+    float:left;
+}
+.spaceLeft{
+    padding: 0 0 0 25px;
+}
