@@ -80,10 +80,12 @@ Module.register("GA", {
 			return wrapper;
 		}
 		innerNode = document.createElement("tr");
-		innerNode.innerTextt = this.stockLists[0].user_text;
+		innerNode.innerText = this.stockLists[0].user_text;
+		innerNode.style.fontSize = "xx-large";
 		wrapper.appendChild(innerNode)
 		innerNode = document.createElement("tr");
-		innerNode.innerTextt = this.stockLists[0].google_text;
+		innerNode.innerText = this.stockLists[0].google_text;
+		innerNode.style.fontSize = "xx-large";
 		wrapper.appendChild(innerNode)
 		return wrapper;
 	},
