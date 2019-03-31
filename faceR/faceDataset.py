@@ -17,7 +17,7 @@ cam.set(3, 640)  # set video width
 cam.set(4, 480)  # set video height
 
 face_detector = cv2.CascadeClassifier(
-    '/Users/ken1277725/anaconda3//envs/py36/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml')
+    'haarcascade_frontalface_default.xml')
 # face_detector.load(
 #    '/Users/ken1277725/anaconda3//envs/py36/share/OpenCV/haarcascades')
 # For each person, enter one numeric face id

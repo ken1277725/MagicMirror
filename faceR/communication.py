@@ -8,7 +8,7 @@ from datetime import datetime
 
 class sender():
     def __init__(self, port=3001):
-        #self.url = "http://localhost:{0}/python".format(port)
+
         self.url = "http://localhost:3001"
         self.headers = {
             'Content-type': 'application/json', 'Accept': 'text/plain'}
